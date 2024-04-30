@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="CursorInsraller.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CursorInsraller"
+    xmlns:mica="clr-namespace:MicaWPF.Styles;assembly=MicaWPF"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <mica:ThemeDictionary Theme="Auto" />
+                <mica:ControlsDictionary />
+                <!--  This is mandatory  -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
