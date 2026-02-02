@@ -74,70 +74,70 @@ public sealed partial class CursorInfo : ObservableObject
         Name = name;
         foreach (var file in Directory.GetFiles(directory, "*.ani"))
         {
-            using var fs = File.OpenRead(file);
+            using var fs = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.Read);
             Cursor cursor = new(fs);
             switch (Path.GetFileNameWithoutExtension(file))
             {
                 case "通常":
                 case "通常の選択":
                     Arrow = cursor;
-                    _arrowName = file;
+                    _arrowName = Path.GetFileName(file);
                     break;
                 case "ヘルプの選択":
                     Help = cursor;
-                    _helpName = file;
+                    _helpName = Path.GetFileName(file);
                     break;
                 case "バックグラウンドで作業中":
                     AppStarting = cursor;
-                    _appStartingName = file;
+                    _appStartingName = Path.GetFileName(file);
                     break;
                 case "待ち状態":
                     Wait = cursor;
-                    _waitName = file;
+                    _waitName = Path.GetFileName(file);
                     break;
                 case "領域選択":
                     Cross = cursor;
-                    _crossName = file;
+                    _crossName = Path.GetFileName(file);
                     break;
                 case "テキスト選択":
                     IBeam = cursor;
-                    _iBeamName = file;
+                    _iBeamName = Path.GetFileName(file);
                     break;
                 case "手書き":
                     Pen = cursor;
-                    _penName = file;
+                    _penName = Path.GetFileName(file);
                     break;
                 case "利用不可":
                     No = cursor;
-                    _noName = file;
+                    _noName = Path.GetFileName(file);
                     break;
                 case "上下に拡大縮小":
                     SizeNS = cursor;
-                    _sizeNSName = file;
+                    _sizeNSName = Path.GetFileName(file);
                     break;
                 case "左右に拡大縮小":
                     SizeWE = cursor;
-                    _sizeWEName = file;
+                    _sizeWEName = Path.GetFileName(file);
                     break;
                 case "斜めに拡大縮小1":
                     SizeNWSE = cursor;
-                    _sizeNWSEName = file;
+                    _sizeNWSEName = Path.GetFileName(file);
                     break;
                 case "斜めに拡大縮小2":
                     SizeNESW = cursor;
-                    _sizeNESWName = file;
+                    _sizeNESWName = Path.GetFileName(file);
                     break;
                 case "移動":
                     SizeAll = cursor;
-                    _sizeAllName = file;
+                    _sizeAllName = Path.GetFileName(file);
                     break;
                 case "代替選択":
                     UpArrow = cursor;
-                    _upArrowName = file;
+                    _upArrowName = Path.GetFileName(file);
                     break;
                 case "リンクの選択":
                     Hand = cursor;
-                    _handName = file;
+                    _handName = Path.GetFileName(file);
                     break;
                 default:
                     break;
